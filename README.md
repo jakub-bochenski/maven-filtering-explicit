@@ -16,9 +16,16 @@ baz=bar
 alice=${env.BOB}
 ```
 
-But I'd like a way to disable interpolating enviorment variables altogether:
+But I'd like a way to disable interpolating enviorment variables altogether.
+This is what happens now:
 ```
 jbochenski@Latitude-E5470:~/maven-filtering-explicit$ export BOB=CECIL; mvn -q && cat target/* 
 baz=bar
 alice=CECIL
+```
+This is what I want:
+```
+jbochenski@Latitude-E5470:~/maven-filtering-explicit$ export BOB=CECIL; mvn -q && cat target/* 
+baz=bar
+alice=${env.BOB}
 ```
